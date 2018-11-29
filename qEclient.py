@@ -21,7 +21,7 @@ def decrypt(message):
 
 
 # Define Server IP address
-ip_address = '192.168.247.1'
+ip_address = '192.168.1.17'
 
 # Define Software Port [agreed point of communication]
 port = 12345
@@ -44,7 +44,7 @@ while True:
     # Receive Message From Server
     if read_ready[0] == server_socket:
         message = server_socket.recv(1024)
-		message = decrypt(message)
+	message = decrypt(message)
         message = message.replace('\r', '').replace('\n', '')        
         print message
 
@@ -53,7 +53,7 @@ while True:
     if read_ready[0] == sys.stdin:
         message = sys.stdin.readline()
         message = message.replace('\r', '').replace('\n', '')
-		message = encrypt(message)
+	message = encrypt(message)
 		
         server_socket.send(message)
         sys.stdout.flush()

@@ -19,7 +19,7 @@ def decrypt(message):
 
 
 # Define Server IP address
-ip_address = '192.168.247.1'
+ip_address = ''
 
 # Define Software Port [agreed point of communication]
 port = 12345
@@ -48,7 +48,7 @@ def new_client_thread(connection_socket, client_address):
     while True:
         # Server listens for client message    
         message = connection_socket.recv(1024)
-		message = decrypt(message)
+	message = decrypt(message)
         message = message.replace('\r', '').replace('\n', '')
 		
         # Check for exit command
